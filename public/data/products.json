@@ -2,7 +2,7 @@
 [
     {
         "id": "1",
-        "title": "Zapatillas Runner X",
+        "title": "Zapatillas",
         "category": "Zapatillas",
         "price": 36000,
         "image": "/images/zapatillas.png",
@@ -18,7 +18,7 @@
     },
     {
         "id": "3",
-        "title": "Pantubotas & Botinetas",
+        "title": "Pantubotas y Botinetas",
         "category": "Botas",
         "price": 38000,
         "image": "/images/pantubotas-y-botinetas.png",
