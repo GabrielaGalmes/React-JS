@@ -3,20 +3,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Componentes Requeridos 
-import Nav from './components/Nav/Nav'; // Usamos Nav en lugar de Header/Footer
+import Nav from './components/Nav/Nav'; // Nav en lugar de Header/Footer
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
-// **OBLIGATORIO: El Contexto del Carrito**
+// El Contexto del Carrito
 import { CartProvider } from './context/CartProvider';
 
 function App() {
 return (
-    // **1. El Proveedor de Contexto debe envolver todo**
+    // 1. El Proveedor de Contexto debe envolver todo
     <CartProvider> 
       <BrowserRouter>
         
-        {/* Usamos Nav, FUERA de Routes */}
+        {/*  Nav FUERA de Routes */}
         <Nav /> 
 
         <Routes>
@@ -26,13 +26,13 @@ return (
             element={<ItemListContainer greeting="¡Bienvenido/a!" />} 
           />
 
-          {/* **2. RUTA OBLIGATORIA: Filtrado por Categoría** */}
+          {/* 2. Filtrado por Categoría */}
           <Route 
             path="/categoria/:categoryId" 
             element={<ItemListContainer greeting="Productos Filtrados" />} 
           />
 
-          {/* 3. Ruta de Detalle (Usamos :itemId para ser consistentes con la guía general) */}
+          {/* 3. Ruta de Detalle  */}
           <Route 
             path="/detalle/:itemId" 
             element={<ItemDetailContainer />} 
