@@ -1,18 +1,15 @@
+import './Item.css';
 
-import { Link } from "react-router-dom";
-import "./Item.css";
-
-export const Item = ({ name, price, description, imageUrl, children }) => {
-  
+export const Item = ({ title, price, image, description, children }) => {
   return (
-    <article className="product-item">
-        <p>Zapatillas</p>
-      <img src={imageUrl} alt={description} />
-      
-      <p>Precio: ${price}</p>
-      
-      {children}
+    <article className="item-card">
+      <img src={image} alt={title} className="item-image" />
+      <div className="item-content">
+        <h3 className="item-title">{title}</h3>
+        <p className="item-description">{description}</p>
+        <p className="item-price">${price.toLocaleString('es-AR')}</p>
+        {children}
+      </div>
     </article>
-    
   );
-};
+}

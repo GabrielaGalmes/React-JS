@@ -1,42 +1,46 @@
-
-import { useEffect, useState } from "react";
-import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
+import './ItemDetailContainer.css';
 
 export const ItemDetailContainer = () => {
   const [detail, setDetail] = useState({});
-
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("/data/products.json")
+    setLoading(true);
+    
+    fetch('/data/products.json')
       .then((res) => {
         if (!res.ok) {
-          throw new Error("No se encontro el producto");
+          throw new Error('Error en la petición');
         }
-
         return res.json();
       })
       .then((data) => {
-        const found = data.find((p) => p.id === id); 
+        console.log(data); // Agrega esta línea aquí
+        const found = data.find((prod) => prod.id === id);
         if (found) {
           setDetail(found);
-        } else {
-          throw new Error("Producto no encontrado");
         }
+        setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
       });
   }, [id]);
 
   return (
-    <main>
-      {Object.keys(detail).length ? (
+    <div className="item-detail-container">
+      {loading ? (
+        <p className="loading">Cargando producto...</p>
+      ) : Object.keys(detail).length > 0 ? (
         <ItemDetail detail={detail} />
       ) : (
-        <p>Cargando...</p>
+        <p className="not-found">Producto no encontrado</p>
       )}
-    </main>
+    </div>
   );
-};
+}

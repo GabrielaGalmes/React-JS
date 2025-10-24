@@ -1,27 +1,35 @@
 
 [
-  {
-    "id": "1",
-    "price": 36000,
-    "category": "Zapatillas",
-    "imageUrl": "/images/zapatilas.png"
-  },
-  {
-    "id": "2",
-    "price": 40000,
-    "category": "Borcegos",
-    "imageUrl": "/images/borcegos.png"
-  },
-  {
-    "id": "3",
-    "category": "Pantubotas&Botinetas",
-    "price": 38000,
-    "imageUrl": "/images/pantubotas-y-botinetas.png"
-  },
-  {
-    "id": "4",
-    "category": "Sandalias",
-    "price": 38000,
-    "imageUrl": "/images/sandalias.png"
-  }
+    {
+        "id": "1",
+        "title": "Zapatillas Runner X",
+        "category": "Zapatillas",
+        "price": 36000,
+        "image": "/images/zapatillas.png",
+        "description": "Livianas, de diseño urbano, para uso diario."
+    },
+    {
+        "id": "2",
+        "title": "Borcegos Cami",
+        "category": "Borcegos",
+        "price": 40000,
+        "image": "/images/borcegos.png",
+        "description": "De cuero, suela resistente."
+    },
+    {
+        "id": "3",
+        "title": "Pantubotas & Botinetas",
+        "category": "Botas",
+        "price": 38000,
+        "image": "/images/pantubotas-y-botinetas.png",
+        "description": "Robustas y abrigadas."
+    },
+    {
+        "id": "4",
+        "title": "Sandalias Mili",
+        "category": "Sandalias",
+        "price": 34000,
+        "image": "/images/sandalias.png",
+        "description": "Cómodas y frescas."
+    }
 ]

@@ -1,30 +1,51 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ItemList } from '../ItemList/ItemList';
+import './ItemListContainer.css';
 
-import { useEffect, useState } from "react";
-import { ItemList } from "../ItemList/ItemList";
-
-export const ItemListContainer = ({ titulo }) => {
+export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    fetch("/data/products.json")
+    setLoading(true);
+    
+    fetch('/data/products.json')
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Hubo un problema al buscar productos");
+          throw new Error('Error en la petición');
         }
         return res.json();
       })
       .then((data) => {
-        setProducts(data);
+        if (categoryId) {
+          const filtered = data.filter((prod) => prod.category === categoryId);
+          setProducts(filtered);
+        } else {
+          setProducts(data);
+        }
+        setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
       });
-  }, []);
+  }, [categoryId]);
 
   return (
-    <section>
-      <h1>{titulo}</h1>
-      <ItemList lista={products} />
-    </section>
+    <div className="item-list-container">
+      <h2 className="container-title">
+        {categoryId ? `Categoría: ${categoryId}` : 'Todos los Productos'}
+      </h2>
+      
+      {loading ? (
+        <p className="loading">Cargando productos...</p>
+      ) : products.length > 0 ? (
+        <ItemList lista={products} />
+      ) : (
+        <p className="no-products">No hay productos en esta categoría</p>
+      )}
+    </div>
   );
-};
+}
