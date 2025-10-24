@@ -1,49 +1,30 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-
-// Componentes Requeridos 
-import Nav from './components/Nav/Nav'; // Nav en lugar de Header/Footer
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
-// El Contexto del Carrito
-import { CartProvider } from './context/CartProvider';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Footer } from "./components/Footer/Footer";
+import { Header } from "./components/Header/Header";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
+import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
-return (
-    // 1. El Proveedor de Contexto debe envolver todo
-    <CartProvider> 
+  return (
+    <>
       <BrowserRouter>
-        
-        {/*  Nav FUERA de Routes */}
-        <Nav /> 
-
-        <Routes>
-          {/* 1. Ruta principal (Todos los productos) */}
-          <Route 
-            path="/" 
-            element={<ItemListContainer greeting="¡Bienvenido/a!" />} 
-          />
-
-          {/* 2. Filtrado por Categoría */}
-          <Route 
-            path="/categoria/:categoryId" 
-            element={<ItemListContainer greeting="Productos Filtrados" />} 
-          />
-
-          {/* 3. Ruta de Detalle  */}
-          <Route 
-            path="/detalle/:itemId" 
-            element={<ItemDetailContainer />} 
-          />
-          
-          {/* 4. Ruta 404 */}
-          <Route path="*" element={<h1>404 Not Found</h1>} />
-        </Routes>
-
+        <div>
+          <Header />
+          {/* Dejamos fuera del Routes lo que queremos que no se vuelva a renderizar al navegar */}
+          <Routes>
+            <Route
+              path="/"
+              element={<ItemListContainer titulo={"Bienvenidos"} />}
+            />
+            <Route path="/detail/:id" element={<ItemDetailContainer />} />
+          </Routes>
+          {/* Dejamos fuera del Routes lo que queremos que no se vuelva a renderizar al navegar */}
+          <Footer />
+        </div>
       </BrowserRouter>
-    </CartProvider>
+    </>
   );
 }
-export default App
+
+export default App;

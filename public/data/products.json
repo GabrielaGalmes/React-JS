@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": "1",
+    "price": 36000,
+    "category": "Zapatillas",
+    "imageUrl": "/images/zapatilas.png"
+  },
+  {
+    "id": "2",
+    "price": 40000,
+    "category": "Borcegos",
+    "imageUrl": "/images/borcegos.png"
+  },
+  {
+    "id": "3",
+    "category": "Pantubotas&Botinetas",
+    "price": 38000,
+    "imageUrl": "/images/pantubotas-y-botinetas.png"
+  },
+  {
+    "id": "4",
+    "category": "Sandalias",
+    "price": 38000,
+    "imageUrl": "/images/sandalias.png"
+  }
+]
