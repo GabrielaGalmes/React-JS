@@ -1,8 +1,8 @@
-import { useCartContext } from '../../context/useCartContext';
+import { useCartContext } from "../../context/CartContext/useCartContext"
 import './Cart.css';
 
 export const Cart = () => {
-  const { cart, removeItem, clearCart, getTotalPrice } = useCartContext();
+  const { cart, removeItem, clearCart, getTotalPrice } = useCartContext()
 
   if (cart.length === 0) {
     return (

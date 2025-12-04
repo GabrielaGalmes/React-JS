@@ -6,7 +6,7 @@ import './ItemListContainer.css';
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { categoryId } = useParams();
+  const { category } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -19,8 +19,8 @@ export const ItemListContainer = () => {
         return res.json();
       })
       .then((data) => {
-        if (categoryId) {
-          const filtered = data.filter((prod) => prod.category === categoryId);
+        if (category) {
+          const filtered = data.filter((prod) => prod.category === category);
           setProducts(filtered);
         } else {
           setProducts(data);
@@ -31,12 +31,13 @@ export const ItemListContainer = () => {
         console.error(error);
         setLoading(false);
       });
-  }, [categoryId]);
+  }, [category]);
 
   return (
     <div className="item-list-container">
+      <h1>Bienvenidos</h1>
       <h2 className="container-title">
-        {categoryId ? `Categoría: ${categoryId}` : 'Todos los Productos'}
+        {category ? `Categoría: ${category}` : 'Todos los Productos'}
       </h2>
       
       {loading ? (

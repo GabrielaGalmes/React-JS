@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../context/useCartContext';
+import { useCartContext } from '../../context/CartContext/useCartContext';
 import './Nav.css';
 
 export const Nav = () => {
@@ -9,33 +9,31 @@ export const Nav = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
-          🛍️ Mi Tienda
-        </Link>
+        
         
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/" className="nav-link">
-              Inicio
+              🛍️ Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/category/Zapatillas" className="nav-link">
+            <Link to="/category/Zapatillas" >
               Zapatillas
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/category/Borcegos" className="nav-link">
+            <Link to="/category/Borcegos" >
               Borcegos
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/category/Botas" className="nav-link">
-              Botas
+            <Link to="/category/Pantubotas&Botinetas" >
+              Pantubotas y Botinetas
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/category/Sandalias" className="nav-link">
+            <Link to="/category/Sandalias" >
               Sandalias
             </Link>
           </li>
@@ -47,6 +45,7 @@ export const Nav = () => {
               )}
             </Link>
           </li>
+         
         </ul>
       </div>
     </nav>

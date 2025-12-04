@@ -1,43 +1,47 @@
-.item-card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+.product-item {
+  background-color: #1e1e1e; /* Gris más claro que el fondo */
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  max-width: 15.625rem; /* 250px */
+  color: #f5f5f5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.item-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.item-image {
+.product-item img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto; /* mantiene proporción */
+  display: block;
 }
 
-.item-content {
-  padding: 1.5rem;
+.product-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
-.item-title {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
+.product-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block; /*hacemos que el link tome todo el bloque del article y sea clickeable*/
 }
 
-.item-description {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+.product-item p {
+  margin: 0.375rem 0; /* 6px */
 }
 
-.item-price {
-  font-size: 1.5rem;
+.product-title {
+  font-size: 1.1rem;
   font-weight: bold;
-  color: #27ae60;
-  margin: 0;
+  color: #ffcc66;
+}
+
+.product-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.product-actions .btn .btn-add {
+  margin: 1rem;
 }

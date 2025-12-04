@@ -20,7 +20,7 @@ export const ItemDetailContainer = () => {
       })
       .then((data) => {
         console.log(data); // Agrega esta línea aquí
-        const found = data.find((prod) => prod.id === id);
+        const found = data.find((prod) => String(prod.id) === String(id));
         if (found) {
           setDetail(found);
         }

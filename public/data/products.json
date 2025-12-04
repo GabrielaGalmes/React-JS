@@ -1,35 +1,59 @@
-
 [
-    {
-        "id": "1",
-        "title": "Zapatillas",
-        "category": "Zapatillas",
-        "price": 36000,
-        "image": "/images/zapatillas.png",
-        "description": "Livianas, de diseño urbano, para uso diario."
-    },
-    {
-        "id": "2",
-        "title": "Borcegos Cami",
-        "category": "Borcegos",
-        "price": 40000,
-        "image": "/images/borcegos.png",
-        "description": "De cuero, suela resistente."
-    },
-    {
-        "id": "3",
-        "title": "Pantubotas y Botinetas",
-        "category": "Botas",
-        "price": 38000,
-        "image": "/images/pantubotas-y-botinetas.png",
-        "description": "Robustas y abrigadas."
-    },
-    {
-        "id": "4",
-        "title": "Sandalias Mili",
-        "category": "Sandalias",
-        "price": 34000,
-        "image": "/images/sandalias.png",
-        "description": "Cómodas y frescas."
-    }
+  {
+    "id": "1",
+    "name": "Super",
+    "price": 36000,
+    "category": "Zapatillas",
+    "description": "Urbanas",
+    "imageUrl": "/images/Super.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Pampa",
+    "price": 36000,
+    "category": "Zapatillas",
+    "description": "Deportivas",
+    "imageUrl": "/images/Pampa.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Cami",
+    "category": "Borcegos",
+    "price": 40000,
+    "description": "Robustos y resistentes",
+    "imageUrl": "/images/Cami.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Peluche",
+    "category": "Pantubotas&Botinetas",
+    "price": 38000,
+    "description": "Livianas, cómodas y abrigadas",
+    "imageUrl": "/images/Peluche.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Coco",
+    "category": "Pantubotas&Botinetas",
+    "price": 38000,
+    "description": "Modernas y elegantes",
+    "imageUrl": "/images/Coco.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Mily",
+    "category": "Sandalias",
+    "price": 34000,
+    "description": "Playeras",
+    "imageUrl": "/images/Mily.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Soe",
+    "category": "Sandalias",
+    "price": 35000,
+    "description": "Coquetas",
+    "imageUrl": "/images/Soe.jpg"
+}
+
 ]
