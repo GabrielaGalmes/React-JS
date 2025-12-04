@@ -13,13 +13,13 @@ export const Login = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUserForm({ ...setUserForm, [name]: value });
+        setUserForm({ ...userFor, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const success = login( userFor.name, userForm.password );
+        const success = login( userFor.name, userFor.password );
         if(success){
             navigate("/admin/alta-productos");
 
@@ -39,7 +39,7 @@ export const Login = () => {
                     id="name"
                     type="text" 
                     name="name" 
-                    value={userForm.name} 
+                    value={userFor.name} 
                     onChange={handleChange} 
                 />
             </div>
@@ -49,7 +49,7 @@ export const Login = () => {
                     id="password"
                     type="password" 
                     name="password" 
-                    value={userForm.password} 
+                    value={userFor.password} 
                     onChange={handleChange} 
                 />
             </div>
