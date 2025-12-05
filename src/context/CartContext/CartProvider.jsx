@@ -4,18 +4,25 @@ import { CartContext } from './CartContext';
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Verificar si un producto ya existe en el carrito
-  const exist = (id) => {
-    return cart.some((p) => p.id === id);
-  };
+    // Verifica si existe
+  const exist = (id) => cart.find((p) => p.id === id);
 
-  // Agregar producto al carrito
-  const addItem = (item) => {
-    if (exist(item.id)) {
-      alert('El producto ya existe en el carrito');
-      return;
+  // Agrega producto con cantidad
+  const addItem = (item, quantity = 1) => {
+    const productExist = exist(item.id);
+
+    if (productExist) {
+      // Si existe → suma cantidades
+      const updatedCart = cart.map((prod) =>
+        prod.id === item.id
+          ? { ...prod, quantity: prod.quantity + quantity }
+          : prod
+      );
+      setCart(updatedCart);
+    } else {
+      // Si no existe → lo agrega con quantity
+      setCart([...cart, { ...item, quantity }]);
     }
-    setCart([...cart, item]);
   };
 
   // Eliminar un producto del carrito
@@ -33,7 +40,7 @@ export const CartProvider = ({ children }) => {
     return cart.length;
   };
 
-  // Obtener el total del carrito
+  // Obtener el Precio total del carrito
   const getTotalPrice = () => {
     return cart.reduce((total, item) => total + item.price, 0);
   };

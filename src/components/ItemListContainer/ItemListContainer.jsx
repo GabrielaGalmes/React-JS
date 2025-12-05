@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemList } from '../ItemList/ItemList';
+import { getProducts } from '../../services/products'; // <-- usamos la función de la API
 import './ItemListContainer.css';
 
 export const ItemListContainer = () => {
@@ -10,14 +12,8 @@ export const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    
-    fetch('/data/products.json')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Error en la petición');
-        }
-        return res.json();
-      })
+
+    getProducts()
       .then((data) => {
         if (category) {
           const filtered = data.filter((prod) => prod.category === category);
@@ -25,12 +21,9 @@ export const ItemListContainer = () => {
         } else {
           setProducts(data);
         }
-        setLoading(false);
       })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
   }, [category]);
 
   return (
@@ -39,7 +32,7 @@ export const ItemListContainer = () => {
       <h2 className="container-title">
         {category ? `Categoría: ${category}` : 'Todos los Productos'}
       </h2>
-      
+
       {loading ? (
         <p className="loading">Cargando productos...</p>
       ) : products.length > 0 ? (
@@ -49,4 +42,5 @@ export const ItemListContainer = () => {
       )}
     </div>
   );
-}
+};
+

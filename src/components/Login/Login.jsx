@@ -56,5 +56,4 @@ export const Login = () => {
             <button type="submit">Iniciar sesion</button>
         </form>
     );
-
 };

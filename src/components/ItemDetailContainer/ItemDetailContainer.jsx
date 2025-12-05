@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { getProductById } from '../../services/products'; // <-- usamos la función de la API
 import './ItemDetailContainer.css';
 
 export const ItemDetailContainer = () => {
@@ -10,26 +12,14 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    
-    fetch('/data/products.json')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Error en la petición');
-        }
-        return res.json();
-      })
+
+    getProductById(id)
       .then((data) => {
-        console.log(data); // Agrega esta línea aquí
-        const found = data.find((prod) => String(prod.id) === String(id));
-        if (found) {
-          setDetail(found);
-        }
-        setLoading(false);
+        if (data) setDetail(data);
+        else throw new Error('Producto no encontrado');
       })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, [id]);
 
   return (
@@ -43,4 +33,4 @@ export const ItemDetailContainer = () => {
       )}
     </div>
   );
-}
+};

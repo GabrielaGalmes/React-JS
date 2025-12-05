@@ -9,8 +9,6 @@ export const Nav = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        
-        
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/" className="nav-link">
@@ -45,12 +43,11 @@ export const Nav = () => {
               )}
             </Link>
           </li>
-         
         </ul>
       </div>
     </nav>
   );
-}
+};
 
 
 
