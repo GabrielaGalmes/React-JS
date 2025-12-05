@@ -2,9 +2,12 @@ import { useCartContext } from '../../context/CartContext/useCartContext';
 import { Item } from '../Item/Item';
 import './ItemDetail.css';
 import { Count } from "../Count/Count"
+import { useNavigate } from 'react-router-dom';
 
 export const ItemDetail = ({ detail }) => {
   const { addItem } = useCartContext();
+
+   const navigate = useNavigate();
 
   if (!detail || Object.keys(detail).length === 0) return <p>Cargando...</p>;
 
@@ -14,7 +17,14 @@ export const ItemDetail = ({ detail }) => {
 
   const handleBuy = () => {
     addItem({ ...detail, qty: 1 });
-    alert("Compra realizada");  //  se confirma la compra
+    alert("Compra realizada"); //  se confirma la compra
+    
+    navigate('/cart'); // redirige al carrito
+  
+  };
+
+  const handleContinue = () => {
+    navigate('/'); // redirige a home
   };
 
   return (
@@ -24,10 +34,17 @@ export const ItemDetail = ({ detail }) => {
          {/* Contador para agregar varias unidades */}
         <Count btnText="Agregar al carrito" onConfirm={handleAdd} />
 
-        {/* Botón para compra rápida */}
-        <button className="btn-buy" onClick={handleBuy}>
-          Comprar
-        </button>
+        <div className="detail-buttons">
+          {/* Botón para compra rápida */}
+          <button className="btn-buy" onClick={handleBuy}>
+            Finalizar Compra
+          </button>
+
+          <button className="btn-continue" onClick={handleContinue}>
+            Seguir comprando
+          </button>
+
+        </div>
       </Item>
     </div>
   );
