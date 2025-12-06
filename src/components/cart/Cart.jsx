@@ -13,8 +13,8 @@ export const Cart = () => {
         <h2>Tu carrito está vacío</h2>
         <p>¡Agrega productos para comenzar!</p>
 
-        <button onClick={() => navigate('/')} className="btn-continue">
-          Seguir comprando
+        <button onClick={() => navigate('/')} className="continue-btn">
+          Continuar comprando
         </button>
 
       </div>
@@ -51,8 +51,14 @@ export const Cart = () => {
           Vaciar Carrito
         </button>
 
-        <button onClick={() => navigate('/')} className="btn-continue">
-          Seguir comprando
+        {/* Botón pagar → por ahora navega al home */}
+        <button 
+          onClick={() => navigate('/')} className="pay-btn"> 
+          Pagar
+        </button>
+        
+        <button onClick={() => navigate('/')} className="continue-btn">
+          Continuar comprando
         </button>
 
       </div>

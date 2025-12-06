@@ -31,17 +31,17 @@ export const ItemDetail = ({ detail }) => {
     <div className="item-detail">
       <Item {...detail}>
         
-         {/* Contador para agregar varias unidades */}
+        {/* Contador para agregar varias unidades */}
         <Count btnText="Agregar al carrito" onConfirm={handleAdd} />
 
-        <div className="detail-buttons">
+        <div className="detail-btn">
           {/* Botón para compra rápida */}
-          <button className="btn-buy" onClick={handleBuy}>
-            Finalizar Compra
+          <button className="buy-btn" onClick={handleBuy}>
+            Finalizar compra
           </button>
 
-          <button className="btn-continue" onClick={handleContinue}>
-            Seguir comprando
+          <button className="continue-btn" onClick={handleContinue}>
+            Continuar comprando
           </button>
 
         </div>
